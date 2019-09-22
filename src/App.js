@@ -1,20 +1,51 @@
 import React, {Component} from 'react';
 import Header from './Header';
+import './App.css';
 
 class App extends Component{
+
   render(){
-    let x = 1;
-    let y =2;
+    let subscribers = [
+      {
+        id: 1,
+        name: "Neha",
+        phone: '8147094028'
+      },
+      {
+        id: 2,
+        name: "Poppa",
+        phone: '9827920102'
+      }
+    ]
+
     return(
       <div>
-        <Header/>
-      <button>Add</button>
-      <div>
-        <span>Name</span><br/>
-        <span>Phone</span>
-      </div>
-      <label htmlFor="name">Name:</label>
-      <input id="name" type="text" placeholder="Your Name" defaultValue={x+y}></input>
+       <Header />
+        <div className="component-body-container">
+          <div>
+            <button className="custom-btn add-btn">Add</button>
+
+            <div className="grid-container heading-container">
+              <span className="grid-item name-heading">Name</span>
+              <span className="grid-item phone-heading">Phone</span>
+            </div>
+
+            {
+              subscribers.map(sub => {
+                return(
+                  <div key={sub.id} className="grid-container">
+                    <span className="grid-item">{sub.name}</span>
+                    <span className="grid-item">{sub.phone}</span>
+                    <span className="grid-item action-btn-container">
+                      <button className="custom-btn delete-btn">Delete</button>
+                    </span>
+                  </div>
+                )
+              })
+            }
+
+          </div>
+        </div>
       </div>
     );
   }
