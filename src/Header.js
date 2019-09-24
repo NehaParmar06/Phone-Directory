@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './Header.css'
 
 //Functinal Component way
-const Header = function(){
+const Header = function(props){
     // const headerStyle = {
     //     textAlign: 'center',
     //     padding: 20,
@@ -12,7 +12,7 @@ const Header = function(){
     //  };
     return(
         <div className="header">
-             Phone Directory
+             {props.heading}
       </div>
     )
 }
@@ -23,7 +23,7 @@ const Header = function(){
 //     render(){
 //         return(
 //             <div className="header">
-//                 Phone Directory
+//                 {this.props.heading}
 //             </div>
 //         )
 //     }
